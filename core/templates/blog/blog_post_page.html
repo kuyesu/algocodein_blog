@@ -1,0 +1,36 @@
+{% load i18n wagtailimages_tags %}
+{% load i18n wagtailcore_tags comments comments_xtd wagtailimages_tags widget_tweaks static %}
+
+
+{# make sure these are at the top of the file #}
+{% load i18n wagtailcore_tags %}
+
+{% if page %}
+    {% for translation in page.get_translations.live %}
+        {% get_language_info for translation.locale.language_code as lang %}
+        <a href="{% pageurl translation %}" rel="alternate" hreflang="{{ language_code }}">
+            {{ lang.name_local }}
+        </a>
+    {% endfor %}
+{% endif %}
+
+
+<h1>{{ page.title }}</h1>
+
+<p>{% translate "Category" %}: <b>{{ page.category }}</b></p>
+
+{% image page.image max-200x200 %}
+
+{{ page.body }}
+
+<div class="container-fluid mt-4 comment-form">
+        {% render_comment_form for page %}
+    </div>
+
+    {% get_comment_count for page as comment_count %}
+    {% if comment_count %}
+        <hr>
+        <div class="container-fluid mt-4 media-list">
+            {% render_xtdcomment_tree for page allow_feedback show_feedback %}
+        </div>
+    {% endif %}
