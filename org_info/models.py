@@ -20,8 +20,13 @@ class Privacy(models.Model):
         return self.name
 
     class Meta:
-    	verbose_name = "Privacy Policy"
-    	verbose_name_plural = "Privacy Policies"
+        # template = "org_info/privacy.html"
+        verbose_name_plural = "Privacy Policies"
+        verbose_name = "Privacy Policy"
+    	
+    	
+     
+        
 
 # Create your models here.
 @register_snippet
@@ -39,5 +44,9 @@ class Cookies(models.Model):
 
 
     class Meta:
-    	verbose_name = "Cookies"
-    	verbose_name_plural = "Cookies"
+        # template = "org_info/cookies.html"
+        verbose_name = "Cookies"
+        verbose_name_plural = "Cookies"
+    	
+    	
+        

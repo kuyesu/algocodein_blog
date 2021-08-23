@@ -1,0 +1,47 @@
+{% extends 'account/base_card.html' %}
+
+{% load i18n wagtailcore_tags %}
+{% load static %}
+
+{% block content %}
+<header>
+    <div class="page-header min-vh-85">
+      <div>
+        <img class="position-absolute fixed-top ms-auto w-50 h-100 z-index-0 d-none d-sm-none d-md-block border-radius-section border-top-end-radius-0 border-top-start-radius-0 border-bottom-end-radius-0" src="{% static "assets/img/curved-images/curved8.jpg" %}" alt="image">
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7 d-flex justify-content-center flex-column">
+            <div class="card d-flex blur justify-content-center p-4 shadow-lg my-sm-0 my-sm-6 mt-8 mb-5">
+              <div class="text-center">
+              {% block card-header %}
+                <h3 class="text-gradient text-primary">{{ page.title }}</h3>
+                <p class="mb-0">
+                  {{ page.intro|richtext }} <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="94fcf1f8f8fbd4f7e6f1f5e0fde2f1b9e0fdf9baf7fbf9">[email&#160;protected]</a>
+                  or contact using our contact form.
+                </p>
+                {% endblock %}
+              </div>
+              {% block card-body %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+
+                {% if page.body %}
+                    {%  include "contact/streamfield.html" %}
+                {% endif %}
+
+            {% endblock %}
+            
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
+    </div>
+     
+  </header>
+  {% endblock %}

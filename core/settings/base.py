@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'herballogo',
     'menu',
     'org_info',
+    'contact',
 
     'wagtail_localize',
     'wagtail_localize.locales',
@@ -50,6 +51,9 @@ INSTALLED_APPS = [
     'wagtail.search',
     'wagtail.admin',
     'wagtail.core',
+    
+    'wagtail.contrib.modeladmin',
+    'wagtailstreamforms',
 
     'modelcluster',
     'taggit',
@@ -74,7 +78,7 @@ INSTALLED_APPS = [
     'django_comments_xtd',
     'django_comments',
 
-
+    'captcha',
 ]
 
 MIDDLEWARE = [
@@ -275,3 +279,9 @@ COMMENTS_XTD_APP_MODEL_OPTIONS = {
         'show_feedback': True,
     }
 }
+ 
+WAGTAILSTREAMFORMS_FORM_TEMPLATES = (
+    ('contact/custom_form.html', _("Custom Form Template")),
+)
+WAGTAILSTREAMFORMS_ADVANCED_SETTINGS_MODEL = 'contact.AdvancedFormSetting'
+
