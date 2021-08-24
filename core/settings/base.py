@@ -35,6 +35,9 @@ INSTALLED_APPS = [
     'menu',
     'org_info',
     'contact',
+    'about',
+    'learning',
+    'helpcenter',
 
     'wagtail_localize',
     'wagtail_localize.locales',
