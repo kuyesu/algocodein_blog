@@ -2,12 +2,34 @@
 {% load static %}
 
 {% block content %}
+<!-- -------- START HEADER 1 w/ text and image on right ------- -->
+  <header>
+    <div class="page-header min-vh-75">
+      <div class="oblique position-absolute top-0 h-100 d-md-block d-none">
+        <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 border-radius-lg border-top-start-radius-0 ms-n6" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/work-with-us.jpg')"></div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-7 d-flex justify-content-center text-md-start text-center flex-column">
+            <h2 class="text-gradient text-info mb-0">Work With Our Team</h2>
+            <h2 class="mb-4">Evolution Continues</h2>
+            <p class="lead pe-md-5 me-md-5 mb-4">The problem happens when we have multiple desires. When we have fuzzy desires. When we want to do ten different things and we’re not clear about which is the one we care about. </p>
+            <div class="buttons">
+              <button type="button" class="btn bg-gradient-dark mt-4">Get Started</button>
+              <button type="button" class="btn text-dark shadow-none mt-4">Read more</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- -------- END HEADER 1 w/ text and image on right ------- -->
 <!-- START Blogs w/ 4 cards w/ image & text & link -->
   <section class="py-3">
     <div class="container">
       <div class="row">
         <div class="col-lg-6">
-          <h3 class="mb-5">Check my latest blogposts</h3>
+          <h3 class="mb-5">This what we do</h3>
         </div>
       </div>
       <div class="row">
@@ -91,6 +113,61 @@
       </div>
     </div>
   </section>
+  <!-- START Teams w/ 4 cards in a row w/ image & name & function -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-auto text-center">
+          <h6 class="text-gradient text-info text-uppercase">The Executive Team</h6>
+          <h2>Building the future</h2>
+        </div>
+      </div>
+      <div class="row mt-md-5 mt-4">
+        <div class="col-lg-4 col-6 mb-lg-0 mb-4">
+          <div class="card shadow-xl">
+            <div class="card-body text-center bg-white border-radius-lg p-3">
+              <a href="javascript:;">
+                <img class="w-100 border-radius-md" src="{% static "/assets/img/kal-visuals.jpg"%}" alt="card image">
+              </a>
+              <h5 class="mt-3 mb-1 d-md-block d-none">Miriam Lendra</h5>
+              <p class="mb-1 d-md-none d-block text-sm font-weight-bold text-darker">Miriam Lendra</p>
+              <p class="mb-0 text-xs font-weight-bolder text-info text-gradient text-uppercase">Desktop Publisher</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-6 mb-lg-0 mb-4">
+          <div class="card shadow-xl">
+            <div class="card-body text-center bg-white border-radius-lg p-3">
+              <a href="javascript:;">
+                <img class="w-100 border-radius-md" src="{% static "/assets/img/brooke.jpg"%}" alt="card image">
+              </a>
+              <h5 class="mt-3 mb-1 d-md-block d-none">Natalie Paisley</h5>
+              <p class="mb-1 d-md-none d-block text-sm font-weight-bold text-darker">Natalie Paisley</p>
+              <p class="mb-0 text-xs font-weight-bolder text-info text-gradient text-uppercase">Credit Analyst</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-6 mb-lg-0 mb-4">
+          <div class="card shadow-xl">
+            <div class="card-body text-center bg-white border-radius-lg p-3">
+              <a href="javascript:;">
+                <img class="w-100 border-radius-md" src="{% static "/assets/img/ivana.jpg"%}" alt="card image">
+              </a>
+              <h5 class="mt-3 mb-1 d-md-block d-none">Bella Audrey</h5>
+              <p class="mb-1 d-md-none d-block text-sm font-weight-bold text-darker">Bella Audrey</p>
+              <p class="mb-0 text-xs font-weight-bolder text-info text-gradient text-uppercase">Economist</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row pt-7 pb-6">
+        <div class="col-lg-6 text-end d-flex flex-column justify-content-center">
+          <button type="button" class="btn bg-gradient-info mb-0 ms-lg-auto me-lg-0 me-auto mt-lg-0 mt-2">Join Team</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- END Teams w/ 4 cards w/ image on left & descriptio/social link on right -->
   <!-- END Blogs w/ 4 cards w/ image & text & link -->
   <section class="py-lg-7">
     <div class="container">
