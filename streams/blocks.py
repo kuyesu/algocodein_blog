@@ -43,6 +43,31 @@ class CardBlock(blocks.StructBlock):
         icon = "placeholder"
         label = "Staff Cards"
 
+class Works(blocks.StructBlock):
+   
+    Herbs_Facts_cards = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("image", ImageChooserBlock(required=True)),
+                ("title", blocks.CharBlock(required=True, max_length=25)),
+                ("text", blocks.TextBlock(required=True, max_length=80)),
+                ("button_page", blocks.PageChooserBlock(required=False)),
+                (
+                    "button_url",
+                    blocks.URLBlock(
+                        required=False,
+                        help_text="If the button page above is selected, that will be used first.",  # noqa
+                    ),
+                ),
+            ]
+        )
+    )
+    class Meta:  # noqa
+        template = "streams/home_facts.html"
+        icon = "placeholder"
+        label = "Works"
+
+
 """Home page Section Popular herbs"""
 class UpConingEvents(blocks.StructBlock):
    
@@ -66,7 +91,7 @@ class UpConingEvents(blocks.StructBlock):
     class Meta:  # noqa
         template = "streams/home_facts.html"
         icon = "placeholder"
-        label = "Facts about Herbs"
+        label = "Events"
 
 
 
@@ -94,7 +119,7 @@ class Activities(blocks.StructBlock):
     class Meta:  # noqa
         template = "streams/home_popular_herbs.html"
         icon = "placeholder"
-        label = "Polpular Herbs"
+        label = "Activitie"
 
 
 
@@ -134,7 +159,7 @@ class JumboBanner(blocks.StructBlock):
             [
                 ("title", blocks.CharBlock(required=True)),
                 ("subtitle",blocks.TextBlock(required=True, max_length=200)),
-                
+                ("image", ImageChooserBlock(required=False)),
                 ("Link_to_a_page", blocks.CharBlock(required=True)),
                 ("Link_to_external_page", blocks.CharBlock(required=False)),
                 ("button_page", blocks.PageChooserBlock(required=False)),
@@ -153,18 +178,46 @@ class JumboBanner(blocks.StructBlock):
     class Meta: #noqa
         template = "streams/jumbobanner_page.html"
         icon = "image"
-        label = "Jumbo Banner"
+        label = "Large Banner"
 
+class SmallBanner(blocks.StructBlock):
+    """Jumbo banner for the bottom"""
+    JumboBanner_Card = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("title", blocks.CharBlock(required=True)),
+                ("subtitle",blocks.TextBlock(required=True, max_length=200)),
+                ("image", ImageChooserBlock(required=False)),
+                ("Link_to_a_page", blocks.CharBlock(required=False)),
+                ("Link_to_external_page", blocks.CharBlock(required=False)),
+                ("button_page", blocks.PageChooserBlock(required=False)),
+                (
+                    "button_url",
+                    blocks.URLBlock(
+                        required=False,
+                        help_text="If the button page above is selected, that will be used first.",  # noqa
+                    ),
+                ),
+            ]
+        )
+    )
+
+
+    class Meta: #noqa
+        template = "streams/small_banner.html"
+        icon = "image"
+        label = "Small Banner"
 
 
 
 class CardMessage(blocks.StructBlock):
 
-    More_Generic_Card = blocks.ListBlock(
+    message_Card = blocks.ListBlock(
         blocks.StructBlock(
             [
                 ("title", blocks.CharBlock(required=True, max_length=40)),
                 ("text", blocks.TextBlock(required=True, max_length=200)),
+                ("image", ImageChooserBlock(required=True)),
                 ("button_page", blocks.PageChooserBlock(required=False)),
                 (
                     "button_url",
@@ -178,10 +231,157 @@ class CardMessage(blocks.StructBlock):
     )
     class Meta: # noqa
         template = "streams/moregenericmessage_page.html"
-        icon = "placeholder"
-        label = "More Generic Message"
-
+        icon = "edit"
+        label = "Message Card"
         
+class CardLight(blocks.StructBlock):
+
+    message_Card = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("title", blocks.CharBlock(required=True, max_length=40)),
+                ("text", blocks.TextBlock(required=True, max_length=200)),
+                ("image", ImageChooserBlock(required=True)),
+                ("button_page", blocks.PageChooserBlock(required=False)),
+                (
+                    "button_url",
+                    blocks.URLBlock(
+                        required=False,
+                        help_text="If the button page above is selected, that will be used first.",  # noqa
+                    ),
+                ),
+            ]
+        )
+    )
+    class Meta: # noqa
+        template = "streams/moregenericmessage_page.html"
+        icon = "edit"
+        label = "Light Card"
+
+class CardImage(blocks.StructBlock):
+
+    message_Card = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("title", blocks.CharBlock(required=True, max_length=40)),
+                ("text", blocks.TextBlock(required=True, max_length=200)),
+                ("image", ImageChooserBlock(required=True)),
+                ("button_page", blocks.PageChooserBlock(required=False)),
+                (
+                    "button_url",
+                    blocks.URLBlock(
+                        required=False,
+                        help_text="If the button page above is selected, that will be used first.",  # noqa
+                    ),
+                ),
+            ]
+        )
+    )
+    class Meta: # noqa
+        template = "streams/moregenericmessage_page.html"
+        icon = "image"
+        label = "Image Card"
+
+
+class CardGeneric(blocks.StructBlock):
+
+    message_Card = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("title", blocks.CharBlock(required=True, max_length=40)),
+                ("text", blocks.TextBlock(required=True, max_length=200)),
+                ("image", ImageChooserBlock(required=True)),
+                ("button_page", blocks.PageChooserBlock(required=False)),
+                (
+                    "button_url",
+                    blocks.URLBlock(
+                        required=False,
+                        help_text="If the button page above is selected, that will be used first.",  # noqa
+                    ),
+                ),
+            ]
+        )
+    )
+    class Meta: # noqa
+        template = "streams/moregenericmessage_page.html"
+        icon = "doc-full"
+        label = "Generic Card" 
+        
+class Technologies(blocks.StructBlock):
+
+    message_Card = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("title", blocks.CharBlock(required=True, max_length=40)),
+                ("text", blocks.TextBlock(required=False, max_length=200)),
+                ("image", ImageChooserBlock(required=True)),
+                ("button_page", blocks.PageChooserBlock(required=False)),
+                (
+                    "button_url",
+                    blocks.URLBlock(
+                        required=False,
+                        help_text="If the button page above is selected, that will be used first.",  # noqa
+                    ),
+                ),
+            ]
+        )
+    )
+    class Meta: # noqa
+        template = "streams/technology.html"
+        icon = "phone"
+        label = "Technology"
+        
+class Testimonies(blocks.StructBlock):
+
+    message_Card = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("title", blocks.CharBlock(required=True, max_length=40)),
+                ("subtitle", blocks.CharBlock(required=True, max_length=40)),
+                
+                ("image", ImageChooserBlock(required=True)),
+                ("Name", blocks.CharBlock(required=True, max_length=40)),
+                ("job_title", blocks.CharBlock(required=True, max_length=40)),
+                ("text", blocks.TextBlock(required=False, max_length=200)),
+                ("button_page", blocks.PageChooserBlock(required=False)),
+                (
+                    "button_url",
+                    blocks.URLBlock(
+                        required=False,
+                        help_text="If the button page above is selected, that will be used first.",  # noqa
+                    ),
+                ),
+            ]
+        )
+    )
+    class Meta: # noqa
+        template = "streams/testimonies.html"
+        icon = "phone"
+        label = "Testimonies"  
+        
+class Partners(blocks.StructBlock):
+
+    message_Card = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("title", blocks.CharBlock(required=True, max_length=40)),
+                ("subtitle", blocks.CharBlock(required=True, max_length=40)),
+                ("image", ImageChooserBlock(required=True)),
+                ("button_page", blocks.PageChooserBlock(required=False)),
+                (
+                    "button_url",
+                    blocks.URLBlock(
+                        required=False,
+                        help_text="If the button page above is selected, that will be used first.",  # noqa
+                    ),
+                ),
+            ]
+        )
+    )
+    class Meta: # noqa
+        template = "streams/partners.html"
+        icon = "phone"
+        label = "Partners"  
 # ------------------------------------------------------------------------
 
 
@@ -222,6 +422,7 @@ class CTABlock(blocks.StructBlock):
     button_page = blocks.PageChooserBlock(required=False)
     button_url = blocks.URLBlock(required=False)
     button_text = blocks.CharBlock(required=True, default='Learn More', max_length=40)
+    
 
     class Meta:  # noqa
         template = "streams/cta_block.html"
@@ -248,7 +449,7 @@ class LinkStructValue(blocks.StructValue):
 
 class ButtonBlock(blocks.StructBlock):
     """An external or internal URL."""
-
+    button_title = blocks.CharBlock(required=True)
     button_page = blocks.PageChooserBlock(required=False, help_text='If selected, this url will be used first')
     button_url = blocks.URLBlock(required=False, help_text='If added, this url will be used secondarily to the button page')
 
@@ -259,6 +460,6 @@ class ButtonBlock(blocks.StructBlock):
 
     class Meta:  # noqa
         template = "streams/button_block.html"
-        icon = "placeholder"
-        label = "Single Button"
+        icon = "link"
+        label = "Button"
 value_class = LinkStructValue

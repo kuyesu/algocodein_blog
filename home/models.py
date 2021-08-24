@@ -47,17 +47,62 @@ class HomePage(Page):
         related_name="+"
     )
     
+    works = StreamField(
+        [
+            ("works", blocks.Works()),
+            ("events", blocks.UpConingEvents()),
+            ("activities", blocks.Activities()),
+            ("JumboBanner", blocks.JumboBanner()),
+            ("smallbanner", blocks.SmallBanner()),
+            ("Testimonies", blocks.Testimonies()),
+            ("partners", blocks.Partners()),
+            ("CardMessage", blocks.CardMessage()),
+            ("technologies", blocks.Technologies()),
+            ("CardLight", blocks.CardLight()),
+            ("CardImage", blocks.CardImage()),
+            ("CardGeneric", blocks.CardGeneric()),
+            ("cta", blocks.CTABlock(required=False)),
+            # ("cta", blocks.CTABlock(required=False)),
+            ("richtext", blocks.RichtextBlock()),
+            ("simpletext", blocks.SimpleRichtextBlock()),
+            # ("cta", blocks.CTABlock()),
+            # ("buttonlogic", blocks.LinkStructValue()),
+            ("cardBlock", blocks.CardBlock()),
+            ("button", blocks.ButtonBlock()),
+            ("titleandtext", blocks.TitleAndTextBlock()),
+            ("sliding_images", blocks.SlidingImage()),
+        ],
+        null=True,
+        blank=True,
+        
+    )
+    
     
     events = StreamField(
         [
+            
             ("events", blocks.UpConingEvents()),
+            ("activities", blocks.Activities()),
+            ("works", blocks.Works()),
+            ("JumboBanner", blocks.JumboBanner()),
+            ("Testimonies", blocks.Testimonies()),
+            ("partners", blocks.Partners()),
+            ("smallbanner", blocks.SmallBanner()),
+            ("CardMessage", blocks.CardMessage()),
+            ("technologies", blocks.Technologies()),
+            ("CardLight", blocks.CardLight()),
+            ("CardImage", blocks.CardImage()),
+            ("CardGeneric", blocks.CardGeneric()),
             ("cta", blocks.CTABlock(required=False)),
+            # ("cta", blocks.CTABlock(required=False)),
             ("richtext", blocks.RichtextBlock()),
             ("simpletext", blocks.SimpleRichtextBlock()),
-            ("cta", blocks.CTABlock()),
+            # ("cta", blocks.CTABlock()),
             # ("buttonlogic", blocks.LinkStructValue()),
             ("cardBlock", blocks.CardBlock()),
-            ("titleandtext", blocks.TitleAndTextBlock())
+            ("button", blocks.ButtonBlock()),
+            ("titleandtext", blocks.TitleAndTextBlock()),
+            ("sliding_images", blocks.SlidingImage()),
         ],
         null=True,
         blank=True,
@@ -68,12 +113,26 @@ class HomePage(Page):
     activities = StreamField(
         [
             ("activities", blocks.Activities()),
+            ("works", blocks.Works()),
+            ("events", blocks.UpConingEvents()),
             ("richtext", blocks.RichtextBlock()),
             ("simpletext", blocks.SimpleRichtextBlock()),
-            ("cta", blocks.CTABlock()),
+            ("JumboBanner", blocks.JumboBanner()),
+            ("Testimonies", blocks.Testimonies()),
+            ("partners", blocks.Partners()),
+            ("smallbanner", blocks.SmallBanner()),
+            ("CardMessage", blocks.CardMessage()),
+            ("technologies", blocks.Technologies()),
+            ("CardLight", blocks.CardLight()),
+            ("CardImage", blocks.CardImage()),
+            ("CardGeneric", blocks.CardGeneric()),
+            ("cta", blocks.CTABlock(required=False)),
+            # ("cta", blocks.CTABlock()),
             # ("buttonlogic", blocks.LinkStructValue()),
             ("cardBlock", blocks.CardBlock()),
-            ("titleandtext", blocks.TitleAndTextBlock())
+            ("titleandtext", blocks.TitleAndTextBlock()),
+            ("button", blocks.ButtonBlock()),
+            ("sliding_images", blocks.SlidingImage()),
         ],
         null=True,
         blank=True,
@@ -88,13 +147,27 @@ class HomePage(Page):
     Sliding_Images_Content = StreamField(
         [
             ("sliding_images", blocks.SlidingImage()),
+            ("activities", blocks.Activities()),
+            ("works", blocks.Works()),
+            ("events", blocks.UpConingEvents()),
+            ("JumboBanner", blocks.JumboBanner()),
+            ("Testimonies", blocks.Testimonies()),
+            ("partners", blocks.Partners()),
+            ("smallbanner", blocks.SmallBanner()),
+            ("CardMessage", blocks.CardMessage()),
+            ("technologies", blocks.Technologies()),
+            ("CardLight", blocks.CardLight()),
+            ("CardImage", blocks.CardImage()),
+            ("CardGeneric", blocks.CardGeneric()),
+            # ("cta", blocks.CTABlock(required=False)),
             ("cta", blocks.CTABlock(required=False)),
             ("richtext", blocks.RichtextBlock()),
             ("simpletext", blocks.SimpleRichtextBlock()),
-            ("cta", blocks.CTABlock()),
+            # ("cta", blocks.CTABlock()),
             # ("buttonlogic", blocks.LinkStructValue()),
             ("cardBlock", blocks.CardBlock()),
-            ("titleandtext", blocks.TitleAndTextBlock())
+            ("titleandtext", blocks.TitleAndTextBlock()),
+            ("button", blocks.ButtonBlock()),
             
         ],
         null=True,
@@ -108,13 +181,26 @@ class HomePage(Page):
     Jumbo_Banner = StreamField(
         [
             ("JumboBanner", blocks.JumboBanner()),
+            ("smallbanner", blocks.SmallBanner()),
+            ("sliding_images", blocks.SlidingImage()),
+            ("activities", blocks.Activities()),
+            ("works", blocks.Works()),
+            ("events", blocks.UpConingEvents()),
+            ("Testimonies", blocks.Testimonies()),
+            ("partners", blocks.Partners()),
+            ("CardMessage", blocks.CardMessage()),
+            ("technologies", blocks.Technologies()),
+            ("CardLight", blocks.CardLight()),
+            ("CardImage", blocks.CardImage()),
+            ("CardGeneric", blocks.CardGeneric()),
             ("cta", blocks.CTABlock(required=False)),
             ("richtext", blocks.RichtextBlock()),
             ("simpletext", blocks.SimpleRichtextBlock()),
-            ("cta", blocks.CTABlock()),
+            # ("cta", blocks.CTABlock()),
             # ("buttonlogic", blocks.LinkStructValue()),
             ("cardBlock", blocks.CardBlock()),
-            ("titleandtext", blocks.TitleAndTextBlock())
+            ("titleandtext", blocks.TitleAndTextBlock()),
+            ("button", blocks.ButtonBlock()),
         ],
         null=True,
         blank=True,
@@ -124,9 +210,22 @@ class HomePage(Page):
     
     
     """MoreGenericMessage"""
-    card_Message = StreamField(
+    cards = StreamField(
         [
             ("CardMessage", blocks.CardMessage()),
+            ("technologies", blocks.Technologies()),
+            ("CardLight", blocks.CardLight()),
+            ("CardImage", blocks.CardImage()),
+            ("CardGeneric", blocks.CardGeneric()),
+            ("JumboBanner", blocks.JumboBanner()),
+            ("Testimonies", blocks.Testimonies()),
+            ("partners", blocks.Partners()),
+            ("smallbanner", blocks.SmallBanner()),
+            ("sliding_images", blocks.SlidingImage()),
+            ("activities", blocks.Activities()),
+            ("works", blocks.Works()),
+            ("events", blocks.UpConingEvents()),
+            ("button", blocks.ButtonBlock()),
             ("cta", blocks.CTABlock(required=False)),
             ("cardBlock", blocks.CardBlock()),
             ("titleandtext", blocks.TitleAndTextBlock()),
@@ -165,6 +264,11 @@ class HomePage(Page):
           
     ]
     
+    works_panel = [
+        StreamFieldPanel("works"),
+          
+    ]
+    
     """panels for section part3 """
     activities_panels = [
         MultiFieldPanel(
@@ -184,8 +288,8 @@ class HomePage(Page):
         StreamFieldPanel("Jumbo_Banner"),
     ]
     
-    card_Message_panel = [
-        StreamFieldPanel("card_Message"),
+    card_panel = [
+        StreamFieldPanel("cards"),
     ]
 #     edit_handler = TabbedInterface(
 #         [
@@ -200,10 +304,11 @@ class HomePage(Page):
         [
             ObjectList(banner_panels, heading="Banner Settings"),
             ObjectList(events_panel, heading = "Events"),
+            ObjectList(works_panel, heading = "Works"),
             ObjectList(activities_panels, heading = "Activities"),
             ObjectList(Sliding_Images_panel, heading = "Sliding Images"),
             ObjectList(Jumbo_Banner_panel, heading = "Jumbo"),
-            ObjectList(card_Message_panel, heading="Message Card"),
+            ObjectList(card_panel, heading="All Card"),
             ObjectList(Page.settings_panels, heading="Setting"),
             ObjectList(Page.promote_panels, heading='Promotional'),
         ]
