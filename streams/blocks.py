@@ -230,9 +230,33 @@ class CardMessage(blocks.StructBlock):
         )
     )
     class Meta: # noqa
-        template = "streams/moregenericmessage_page.html"
+        template = "streams/card/contact/message.html"
         icon = "edit"
         label = "Message Card"
+        
+class CardLapping(blocks.StructBlock):
+
+    message_Card = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("title", blocks.CharBlock(required=True, max_length=40)),
+                ("text", blocks.TextBlock(required=True, max_length=200)),
+                ("image", ImageChooserBlock(required=True)),
+                ("button_page", blocks.PageChooserBlock(required=False)),
+                (
+                    "button_url",
+                    blocks.URLBlock(
+                        required=False,
+                        help_text="If the button page above is selected, that will be used first.",  # noqa
+                    ),
+                ),
+            ]
+        )
+    )
+    class Meta: # noqa
+        template = "streams/card/lapping_card.html"
+        icon = "edit"
+        label = "Lapping Card"
         
 class CardLight(blocks.StructBlock):
 
@@ -254,9 +278,131 @@ class CardLight(blocks.StructBlock):
         )
     )
     class Meta: # noqa
-        template = "streams/moregenericmessage_page.html"
+        template = "streams/card/light_card.html"
         icon = "edit"
         label = "Light Card"
+
+class CardLightSmall(blocks.StructBlock):
+
+    message_Card = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("title", blocks.CharBlock(required=True, max_length=40)),
+                ("text", blocks.TextBlock(required=True, max_length=200)),
+                ("image", ImageChooserBlock(required=True)),
+                ("button_page", blocks.PageChooserBlock(required=False)),
+                (
+                    "button_url",
+                    blocks.URLBlock(
+                        required=False,
+                        help_text="If the button page above is selected, that will be used first.",  # noqa
+                    ),
+                ),
+            ]
+        )
+    )
+    class Meta: # noqa
+        template = "streams/card/smallcard.html"
+        icon = "edit"
+        label = "Small Light Card"
+
+
+class CardWave(blocks.StructBlock):
+
+    message_Card = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("title", blocks.CharBlock(required=True, max_length=40)),
+                ("text", blocks.TextBlock(required=True, max_length=200)),
+                ("image", ImageChooserBlock(required=True)),
+                ("button_page", blocks.PageChooserBlock(required=False)),
+                (
+                    "button_url",
+                    blocks.URLBlock(
+                        required=False,
+                        help_text="If the button page above is selected, that will be used first.",  # noqa
+                    ),
+                ),
+            ]
+        )
+    )
+    class Meta: # noqa
+        template = "streams/card/card_wave.html"
+        icon = "edit"
+        label = "Wave Card"
+
+
+class CardContact(blocks.StructBlock):
+
+    message_Card = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("title", blocks.CharBlock(required=True, max_length=40)),
+                ("text", blocks.TextBlock(required=True, max_length=200)),
+                ("image", ImageChooserBlock(required=True)),
+                ("button_page", blocks.PageChooserBlock(required=False)),
+                (
+                    "button_url",
+                    blocks.URLBlock(
+                        required=False,
+                        help_text="If the button page above is selected, that will be used first.",  # noqa
+                    ),
+                ),
+            ]
+        )
+    )
+    class Meta: # noqa
+        template = "streams/card/contact/contact.html"
+        icon = "contact"
+        label = "Contact Card"
+        
+class CardSubscribe(blocks.StructBlock):
+
+    message_Card = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("title", blocks.CharBlock(required=True, max_length=40)),
+                ("text", blocks.TextBlock(required=True, max_length=200)),
+                ("image", ImageChooserBlock(required=True)),
+                ("button_page", blocks.PageChooserBlock(required=False)),
+                (
+                    "button_url",
+                    blocks.URLBlock(
+                        required=False,
+                        help_text="If the button page above is selected, that will be used first.",  # noqa
+                    ),
+                ),
+            ]
+        )
+    )
+    class Meta: # noqa
+        template = "streams/card/contact/subscribe.html"
+        icon = "edit"
+        label = "Subscribe Card"
+        
+class CardCode(blocks.StructBlock):
+
+    message_Card = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("title", blocks.CharBlock(required=True, max_length=40)),
+                ("text", blocks.TextBlock(required=True, max_length=200)),
+                ("image", ImageChooserBlock(required=True)),
+                ("button_page", blocks.PageChooserBlock(required=False)),
+                (
+                    "button_url",
+                    blocks.URLBlock(
+                        required=False,
+                        help_text="If the button page above is selected, that will be used first.",  # noqa
+                    ),
+                ),
+            ]
+        )
+    )
+    class Meta: # noqa
+        template = "streams/card/code.html"
+        icon = "code"
+        label = "Code Card"
 
 class CardImage(blocks.StructBlock):
 
@@ -278,7 +424,7 @@ class CardImage(blocks.StructBlock):
         )
     )
     class Meta: # noqa
-        template = "streams/moregenericmessage_page.html"
+        template = "streams/card/image_card.html"
         icon = "image"
         label = "Image Card"
 
@@ -303,10 +449,35 @@ class CardGeneric(blocks.StructBlock):
         )
     )
     class Meta: # noqa
-        template = "streams/moregenericmessage_page.html"
+        template = "streams/card/generic_card.html"
         icon = "doc-full"
         label = "Generic Card" 
-        
+
+class CardActivity(blocks.StructBlock):
+
+    message_Card = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("title", blocks.CharBlock(required=True, max_length=40)),
+                ("text", blocks.TextBlock(required=True, max_length=200)),
+                ("image", ImageChooserBlock(required=True)),
+                ("button_page", blocks.PageChooserBlock(required=False)),
+                (
+                    "button_url",
+                    blocks.URLBlock(
+                        required=False,
+                        help_text="If the button page above is selected, that will be used first.",  # noqa
+                    ),
+                ),
+            ]
+        )
+    )
+    class Meta: # noqa
+        template = "streams/card/activity_card.html"
+        icon = "doc-full"
+        label = "Activity Card"
+
+ 
 class Technologies(blocks.StructBlock):
 
     message_Card = blocks.ListBlock(
