@@ -39,7 +39,7 @@ class CardBlock(blocks.StructBlock):
     )
 
     class Meta:  # noqa
-        template = "streams/card_block.html"
+        template = "streams/card/card_staff.html"
         icon = "placeholder"
         label = "Staff Cards"
 
@@ -63,7 +63,7 @@ class Works(blocks.StructBlock):
         )
     )
     class Meta:  # noqa
-        template = "streams/home_facts.html"
+        template = "streams/works.html"
         icon = "placeholder"
         label = "Works"
 
@@ -89,7 +89,7 @@ class UpConingEvents(blocks.StructBlock):
         )
     )
     class Meta:  # noqa
-        template = "streams/home_facts.html"
+        template = "streams/events.html"
         icon = "placeholder"
         label = "Events"
 
@@ -428,6 +428,30 @@ class CardImage(blocks.StructBlock):
         icon = "image"
         label = "Image Card"
 
+class CardTeam(blocks.StructBlock):
+
+    message_Card = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("title", blocks.CharBlock(required=True, max_length=40)),
+                ("text", blocks.TextBlock(required=True, max_length=200)),
+                ("image", ImageChooserBlock(required=True)),
+                ("button_page", blocks.PageChooserBlock(required=False)),
+                (
+                    "button_url",
+                    blocks.URLBlock(
+                        required=False,
+                        help_text="If the button page above is selected, that will be used first.",  # noqa
+                    ),
+                ),
+            ]
+        )
+    )
+    class Meta: # noqa
+        template = "streams/card/team_card.html"
+        icon = "image"
+        label = "Team Card"
+
 
 class CardGeneric(blocks.StructBlock):
 
@@ -477,6 +501,33 @@ class CardActivity(blocks.StructBlock):
         icon = "doc-full"
         label = "Activity Card"
 
+class CardTestimonies(blocks.StructBlock):
+
+    message_Card = blocks.ListBlock(
+        blocks.StructBlock(
+            [
+                ("title", blocks.CharBlock(required=True, max_length=40)),
+                ("subtitle", blocks.CharBlock(required=True, max_length=40)),
+                
+                ("image", ImageChooserBlock(required=True)),
+                ("Name", blocks.CharBlock(required=True, max_length=40)),
+                ("job_title", blocks.CharBlock(required=True, max_length=40)),
+                ("text", blocks.TextBlock(required=False, max_length=200)),
+                ("button_page", blocks.PageChooserBlock(required=False)),
+                (
+                    "button_url",
+                    blocks.URLBlock(
+                        required=False,
+                        help_text="If the button page above is selected, that will be used first.",  # noqa
+                    ),
+                ),
+            ]
+        )
+    )
+    class Meta: # noqa
+        template = "streams/testimonies_card.html"
+        icon = "phone"
+        label = "Testimonies Card"
  
 class Technologies(blocks.StructBlock):
 
@@ -620,8 +671,13 @@ class LinkStructValue(blocks.StructValue):
 
 class ButtonBlock(blocks.StructBlock):
     """An external or internal URL."""
-    button_title = blocks.CharBlock(required=True)
-    button_page = blocks.PageChooserBlock(required=False, help_text='If selected, this url will be used first')
+    button_name = blocks.CharBlock(required=True)
+    button_dark = blocks.PageChooserBlock(required=False, help_text='If selected, this url will be used first')
+    button_colored = blocks.PageChooserBlock(required=False, help_text='If selected, this url will be used first')
+    button_transparent = blocks.PageChooserBlock(required=False, help_text='If selected, this url will be used first')
+    button_search = blocks.PageChooserBlock(required=False, help_text='If selected, this url will be used first')
+    button_medium = blocks.PageChooserBlock(required=False, help_text='If selected, this url will be used first')
+    button_small = blocks.PageChooserBlock(required=False, help_text='If selected, this url will be used first')
     button_url = blocks.URLBlock(required=False, help_text='If added, this url will be used secondarily to the button page')
 
     # def get_context(self, request, *args, **kwargs):
