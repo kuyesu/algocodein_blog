@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'learning',
     'helpcenter',
     'streams',
+    'header',
 
     'wagtail_localize',
     'wagtail_localize.locales',

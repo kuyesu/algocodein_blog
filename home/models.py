@@ -25,6 +25,7 @@ class HomePage(Page):
         # 'blog.BlogListingPage',
         'contact.ContactPage',
         'about.AboutUs',
+        'header.HeaderBanner',
     ]
     parent_page_type = [
         'wagtailcore.Page'
